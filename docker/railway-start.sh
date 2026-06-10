@@ -7,6 +7,7 @@
 set -e
 
 python scripts/provision_db.py
+python scripts/configure_embeddings.py --yes
 
 python -m src.deriver &
 fastapi run --host 0.0.0.0 --port "${PORT:-8000}" src/main.py &
